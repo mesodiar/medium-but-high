@@ -12,10 +12,10 @@ h3 {
 }
 
 .content {
-  margin-left: 50px;
   margin-top: 10px;
 }
 
 .card {
-  width: 40rem;
+  width: 600px;
+  margin-bottom: 30px;
 }
