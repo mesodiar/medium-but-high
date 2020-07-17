@@ -7,6 +7,7 @@ class Story(models.Model):
     content = models.TextField()
     created_date = models.DateTimeField(auto_now=True)
     published_date = models.DateTimeField(blank=True, null=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
