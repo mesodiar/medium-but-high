@@ -1,0 +1,17 @@
+h3 {
+  color: #15c4b5;
+  font-family: "PT Serif", serif;
+}
+
+.page-header {
+  background-color: #f8f6f6;
+  margin-top: 0;
+  padding: 20px 20px 20px 50px;
+  font-size: 30px;
+  font-family: "PT Serif", serif;
+}
+
+.content {
+  margin-left: 50px;
+  margin-top: 10px;
+}
