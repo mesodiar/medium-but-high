@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from datetime import datetime
+
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import CreateView
 
@@ -20,5 +22,17 @@ def detail(request, story_id):
 
 
 def new_story(request):
-    form = StoryForm()
+    if request.method == "POST":
+        form = StoryForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.cleaned_data['image']
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            author = form.cleaned_data['author']
+
+            form.save()
+
+            return redirect('index')
+    else:
+        form = StoryForm()
     return render(request, 'stories/new_story.html', {'form': form})
