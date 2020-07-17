@@ -1,0 +1,16 @@
+// Hardcode
+<h1>This is your story index</h1>
+<ul>
+{% for story in stories %}
+    <li><a href="/stories/{{ story.id }}/">{{ story }}</a></li>
+{% endfor %}
+</ul>
+
+
+// Dynamic
+<h1>This is your story index</h1>
+<ul>
+{% for story in stories %}
+    <li><a href="{% url 'detail' story.id %}">{{ story }}</a></li>
+{% endfor %}
+</ul>
