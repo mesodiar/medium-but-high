@@ -1,16 +1,15 @@
-// Hardcode
-<h1>This is your story index</h1>
-<ul>
-{% for story in stories %}
-    <li><a href="/stories/{{ story.id }}/">{{ story }}</a></li>
-{% endfor %}
-</ul>
-
-
-// Dynamic
-<h1>This is your story index</h1>
-<ul>
-{% for story in stories %}
-    <li><a href="{% url 'detail' story.id %}">{{ story }}</a></li>
-{% endfor %}
-</ul>
+{% extends 'stories/base.html' %} {% block content %} {% for story in stories %}
+<div class="card">
+  <img
+    src="{{ MEDIA_URL }}{{ story.image.url }}"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <a href="{% url 'detail' story.id %}"
+      ><h3>{{ story.title }} by {{ story.author }}</h3></a
+    >
+    <p>{{ story.content }}</p>
+  </div>
+</div>
+{% endfor %} {% endblock %}
