@@ -25,11 +25,6 @@ def new_story(request):
     if request.method == "POST":
         form = StoryForm(request.POST, request.FILES)
         if form.is_valid():
-            image = form.cleaned_data['image']
-            title = form.cleaned_data['title']
-            content = form.cleaned_data['content']
-            author = form.cleaned_data['author']
-
             form.save()
 
             return redirect('index')
