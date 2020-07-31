@@ -1,7 +1,7 @@
 {% extends 'stories/base.html' %} 
 {% block content %} 
 {% for story in stories %}
-<div class="card">
+<div class="card shadow p-3 mb-5 bg-white rounded">
   {% if story.image %}
   <img
     src="{{ MEDIA_URL }}{{ story.image.url }}"
@@ -11,8 +11,10 @@
   {% endif %}
   <div class="card-body">
     <a href="{% url 'detail' story.id %}"
-      ><h3>{{ story.title }} by {{ story.author }}</h3></a
+      ><h3>{{ story.title }}
+      </h3></a
     >
+     <h6 class="card-subtitle mb-2 text-muted">{{ story.author }}</h6>
     <p>{{ story.content }}</p>
   </div>
 </div>
